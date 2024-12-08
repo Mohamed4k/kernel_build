@@ -32,7 +32,7 @@ installDependencies
 
 ## clone Kernel
 echo "Cloning Kernel"
-git clone https://github.com/divyam234/android_kernel_asus_sdm660 -b eleven kernel
+git clone https://github.com/Mohamed4k/kernel_common.git -b android15-6.6-2024-12
 
 ##------------------------------------------------------##
 ##----------Basic Informations, COMPULSORY--------------##
@@ -42,23 +42,23 @@ KERNEL_DIR=$(pwd)/kernel
 cd $KERNEL_DIR
 
 # The name of the device for which the kernel is built
-MODEL="Asus Zenfone Max Pro M2"
+MODEL="Redmi 13C 4G"
 
 # The codename of the device
-DEVICE="X01BD"
+DEVICE="gale"
 
 # The defconfig which should be used. Get it from config.gz from
 # your device or check source
-DEFCONFIG=X01BD_defconfig
+DEFCONFIG=gki_defconfig
 
 # Show manufacturer info
-MANUFACTURERINFO="ASUSTek Computer Inc."
+MANUFACTURERINFO="Mohamed4k "
 
 # Kernel Variant
-VARIANT=perf
+VARIANT=-4k
 
 # Build Type
-BUILD_TYPE="Release"
+BUILD_TYPE="test"
 
 # Specify compiler.
 # 'clang' or 'clangxgcc' or 'gcc'
@@ -77,7 +77,7 @@ INCREMENTAL=0
 TOKEN=$TELEGRAM_TOKEN
 
 # Push ZIP to Telegram. 1 is YES | 0 is NO(default)
-PTTG=1
+PTTG=0
 	if [ $PTTG = 1 ]
 	then
 		# Set Telegram Chat ID
@@ -88,7 +88,7 @@ PTTG=1
 DEF_REG=0
 
 # Files/artifacts
-FILES=Image.gz-dtb
+FILES=Image.gz
 
 # Build dtbo.img (select this only if your source has support to building dtbo.img)
 # 1 is YES | 0 is NO(default)
@@ -134,7 +134,7 @@ DATE=$(TZ=Asia/Kolkata date +"%Y-%m-%d")
 	if [ $COMPILER = "clang" ]
 	then
 		msg "|| Cloning toolchain ||"
-		mkdir clang ; cd clang ; wget https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/main/clang-r510928.tar.gz ; tar -xf * && ls $KERNEL_DIR/clang
+		mkdir clang ; cd clang ; wget https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/main/clang-r510928.tar.gz ; tar -xf * && cd .. $KERNEL_DIR/clang
 
 	elif [ $COMPILER = "gcc" ]
 	then
