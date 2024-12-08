@@ -32,7 +32,7 @@ installDependencies
 
 ## clone Kernel
 echo "Cloning Kernel"
-git clone https://github.com/Mohamed4k/kernel_common.git -b android15-6.6-2024-12
+git clone https://github.com/Mohamed4k/kernel_common.git -b android15-6.6-2024-12 kernel
 
 ##------------------------------------------------------##
 ##----------Basic Informations, COMPULSORY--------------##
