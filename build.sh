@@ -134,7 +134,7 @@ DATE=$(TZ=Asia/Kolkata date +"%Y-%m-%d")
 	if [ $COMPILER = "clang" ]
 	then
 		msg "|| Cloning toolchain ||"
-		git clone --depth=1 https://github.com/kdrag0n/proton-clang -b master $KERNEL_DIR/clang
+		mkdir clang ; cd clang ; wget https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/main/clang-r510928.tar.gz ; tar -xf * && ls $KERNEL_DIR/clang
 
 	elif [ $COMPILER = "gcc" ]
 	then
